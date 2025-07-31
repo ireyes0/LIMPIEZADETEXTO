@@ -12,7 +12,7 @@ class TextMiningService {
     const negativeWords = ['malo', 'terrible', 'horrible', 'pésimo', 'asco', 'desagradable', 'horrendo'];
 
 
-    // Pasar las palabras a minúsculas
+    // Analiza el sentimiento del texto
     let sentiment = 0;
     words.forEach(word => {
       if (positiveWords.includes(word)) sentiment++;
@@ -61,9 +61,10 @@ export const test = async (comentario) => {
 
   try {
     // Await es para esperar un poco para recibir una respuesta
-    await Text.create(resultado);
+    await Text.create(resultado); // NOMBRE DE LA TABLA (resultado)
     console.log("Analisis guardado en MONGO DB");
   } catch (error) {
      console.log("Error al guardar en MongoDB", error);
   }
 };
+
